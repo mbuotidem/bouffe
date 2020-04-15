@@ -1,29 +1,85 @@
-﻿@model PizzasViewModel
- 
+﻿@*@model PizzasViewModel*@
+@model MenuViewModel
+@using bouffe.Models
+@using bouffe.Interfaces
 
-    <div class="jumbotron">
-        <h1 class="display-4">Hungry?</h1>
-        <p class="lead">Let's fix that for you. Order your favorite pizza and you'll be chomping in 20 minutes.</p>
-        <hr class="my-4">
-        <p>Now with order delivery tracking!.</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-    </div>
-    <div class="card-deck">
-        @foreach (var pizza in Model.pizzas)
+
+<div class="jumbotron">
+    <h1 class="display-4">Hungry?</h1>
+    <p class="lead">Let's fix that for you. Order your favorite pizza and you'll be chomping in 20 minutes.</p>
+    <hr class="my-4">
+    <p>Now with order delivery tracking!</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+</div>
+<div class="card-deck">
+    @*@foreach (var pizza in Model.pizzas)
         {
-        <div class="card mt-4">
-            <img class ="card-img-top" src="@pizza.ImageThumbUrl" alt="Image of a pizza" />
-            <div class="card-body">
-                <div class="card-text text-center">
-                    <h3>@pizza.Price.ToString("c")</h3>
-                    <h3>
-                        <a>@pizza.Name</a>
-                    </h3>
-                    <p>@pizza.ShortDesc</p>
+            <div class="card mt-4">
+                <img class="card-img-top" src="@pizza.ImageThumbUrl" alt="Image of a pizza" />
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <h3>@pizza.Price.ToString("c")</h3>
+                        <h3>
+                            <a>@pizza.Name</a>
+                        </h3>
+                        <p>@pizza.ShortDesc</p>
+                    </div>
+                </div>
+            </div>*@
+
+    @*@for (Pizza item = ((Pizza)Model.menuItems.First());!Model.menuItems.IsDone; item = ((Pizza)Model.menuItems.Next()))
+
+        {
+            <div class="card mt-4">
+                <img class="card-img-top" src="@item.ImageThumbUrl" alt="Image of a pizza" />
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <h3>@item.Price.ToString("c")</h3>
+                        <h3>
+                            <a>@item.Name</a>
+                        </h3>
+                        <p>@item.ShortDesc</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        }*@
+
+    @foreach (var iterator in Model.menuItems)
+    {
+        for (var item = iterator.First(); !iterator.IsDone; item = iterator.Next())
+        {
+            <div class="card mt-4">
+                <img class="card-img-top" src="@(((MenuItem)item).ImageThumbUrl)" alt="Image of a pizza" />
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <h3>@(((MenuItem)item).Price.ToString("c"))</h3>
+                        <h3>
+                            <a>@(((MenuItem)item).Name)</a>
+                        </h3>
+                        <p>@(((MenuItem)item).ShortDesc)</p>
+                    </div>
+                </div>
+            </div>
         }
-    </div>
+    }
+
+
+    @*@for (Pizza item = ((Pizza)Model.menuItems.First()); !Model.menuItems.IsDone; item = ((Pizza)Model.menuItems.Next()))
+
+        {
+            <div class="card mt-4">
+                <img class="card-img-top" src="@item.ImageThumbUrl" alt="Image of a pizza" />
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <h3>@item.Price.ToString("c")</h3>
+                        <h3>
+                            <a>@item.Name</a>
+                        </h3>
+                        <p>@item.ShortDesc</p>
+                    </div>
+                </div>
+            </div>
+        }*@
+</div>

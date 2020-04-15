@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace bouffe.Models
 {
-    public class Pizza : MenuItem
+    public class Chicken : MenuItem
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,9 +15,8 @@ namespace bouffe.Models
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }
         public string ImageThumbUrl { get; set; }
-        public bool IsPizzaOfTheWeek { get; set; }
         public bool InStock { get; set; }
-        public int PizzaTypeId { get; set; }
-        public PizzaType PizzaType { get; set; }
+        public int ChickenTypeId { get; set; }
+        public ChickenType ChickenType { get; set; }
     }
 }

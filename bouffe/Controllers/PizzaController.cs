@@ -23,9 +23,9 @@ namespace bouffe.Controllers
             };
             pizzas = new List<Pizza>
             {
-                new Pizza {PizzaId = 1, Name = "Hawaiian Delight", Price = 5.99M, ShortDesc = "Ham and Pineapple",PizzaType = pizzaTypes.First(), ImageThumbUrl="/images/hawaiian.jpg"},
-                new Pizza {PizzaId = 1, Name = "Pepperoni Mashup", Price = 5.99M, ShortDesc = "Cheese", PizzaType = pizzaTypes.ElementAt(1), ImageThumbUrl="/images/pepperoni.jpg" },
-                new Pizza {PizzaId = 1, Name = "Veggie Party", Price = 5.99M, ShortDesc = "Vegetables", PizzaType = pizzaTypes.Last(), ImageThumbUrl="/images/veggie.jpg"}
+                new Pizza {Id = 1, Name = "Hawaiian Delight", Price = 5.99M, ShortDesc = "Ham and Pineapple",PizzaType = pizzaTypes.First(), ImageThumbUrl="/images/hawaiian.jpg"},
+                new Pizza {Id = 1, Name = "Pepperoni Mashup", Price = 5.99M, ShortDesc = "Cheese", PizzaType = pizzaTypes.ElementAt(1), ImageThumbUrl="/images/pepperoni.jpg" },
+                new Pizza {Id = 1, Name = "Veggie Party", Price = 5.99M, ShortDesc = "Vegetables", PizzaType = pizzaTypes.Last(), ImageThumbUrl="/images/veggie.jpg"}
 
             };
         }

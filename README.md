@@ -1,6 +1,6 @@
 ﻿# Overview
 
-bouffe is a contrived web application created solely to demonstrate use of design patterns.
+bouffe is an illustrative web application created solely to demonstrate use of design patterns.
 The application enables online ordering of pizza. 
 # Links
 
@@ -10,7 +10,8 @@ Project Live site : [bouffe.us](https://bouffe.us)
 ## Features
 |Pattern  |Status  |
 |--|--|
-|  [MVC](bouffe/PatternDocs/MVC.md) |Done  |
+|  [MVC](MVC.md) |Done  |
+|  [Iterator](Iterator.md)| To Do  |
 |  Facade |To Do  |
 |  Builder| To Do  |
 |  Composite| To Do  |
@@ -19,5 +20,4 @@ Project Live site : [bouffe.us](https://bouffe.us)
 |  Factory | To Do  |
 |  Observer | To Do  |
 |  Strategy| To Do  |
-|  Proxy| To Do  |
 |  Memento| To Do  |
