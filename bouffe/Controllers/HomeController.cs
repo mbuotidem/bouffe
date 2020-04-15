@@ -4,16 +4,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using bouffe.Models;
 using bouffe.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
+// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace bouffe.Controllers
 {
-    public class PizzaController : Controller
+    public class HomeController : Controller
     {
         IEnumerable<PizzaType> pizzaTypes = Enumerable.Empty<PizzaType>();
         IEnumerable<Pizza> pizzas = Enumerable.Empty<Pizza>();
-        
-        public PizzaController()
+
+        public HomeController()
         {
             pizzaTypes = new List<PizzaType>
             {
@@ -29,15 +32,24 @@ namespace bouffe.Controllers
 
             };
         }
+        // GET: /<controller>/
         public IActionResult Index()
+        {
+            PizzasViewModel allPizzas = new PizzasViewModel(pizzas);
+            ViewBag.Title = "bouffe-Pizza Delivery";
+            return View(allPizzas);
+        }
+
+        [AllowAnonymous]
+        public IActionResult Privacy()
         {
             return View();
         }
 
-        public ViewResult List()
+        [AllowAnonymous]
+        public IActionResult Faq()
         {
-            PizzasViewModel allPizzas = new PizzasViewModel(pizzas);
-            return View(allPizzas);
+            return View();
         }
     }
 }

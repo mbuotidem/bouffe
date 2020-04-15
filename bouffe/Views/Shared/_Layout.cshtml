@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <link href="~/lib/css/site.css" rel="stylesheet" />
+
+<script type="text/javascript">
+    document.addEventListener("turbolinks:load", function () {
+        $('.carousel').carousel({
+            interval: 7000
+        });
+    });
+</script>
+
+<title>@ViewBag.Title</title>
+</head>
+<body>
+    <partial name="_HeaderNavBar.cshtml" />
+
+    <div class="container-fluid">
+        <div class="container-fluid">
+
+            @RenderBody()
+        </div>
+    </div>
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>
