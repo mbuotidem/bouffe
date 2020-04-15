@@ -10,7 +10,7 @@ Project Live site : [bouffe.us](https://bouffe.us)
 ## Features
 |Pattern  |Status  |
 |--|--|
-|  [MVC](MVC.md) |Done  |
+|  [MVC](PatternDocs/MVC.md) |Done  |
 |  Facade |To Do  |
 |  Builder| To Do  |
 |  Composite| To Do  |
