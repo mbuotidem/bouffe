@@ -16,7 +16,7 @@ namespace bouffe.Interfaces
             return new ChickenIterator(this);
         }
 
-        //Get number of pizzas in collection
+        //Get number of chickens in collection
         public int Count
         {
             get => items.Count;
