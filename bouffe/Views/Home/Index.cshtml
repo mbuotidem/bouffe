@@ -51,15 +51,24 @@
         for (var item = iterator.First(); !iterator.IsDone; item = iterator.Next())
         {
             <div class="card mt-4">
-                <img class="card-img-top" src="@(((MenuItem)item).ImageThumbUrl)" alt="Image of a pizza" />
+                <img class="card-img-top" src="@(((IMenuItem)item).ImageThumbUrl)" alt="Image of a pizza" />
                 <div class="card-body">
                     <div class="card-text text-center">
-                        <h3>@(((MenuItem)item).Price.ToString("c"))</h3>
+                        <h3>@(((IMenuItem)item).Price.ToString("c"))</h3>
+                        <div class="addToCart">
+                            <p class="button text-center">
+                                <a class="btn btn-primary"
+                                   asp-controller="OrderCart"
+                                   asp-action="AddToCart"
+                                   asp-route-itemId="@(((IMenuItem)item).Id)">Add to cart</a>
+                            </p>
+                        </div>
                         <h3>
-                            <a>@(((MenuItem)item).Name)</a>
+                            <a>@(((IMenuItem)item).Name)</a>
                         </h3>
-                        <p>@(((MenuItem)item).ShortDesc)</p>
+                        <p>@(((IMenuItem)item).ShortDesc)</p>
                     </div>
+                    
                 </div>
             </div>
         }

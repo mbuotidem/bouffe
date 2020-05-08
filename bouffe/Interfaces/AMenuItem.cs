@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace bouffe.Interfaces
 {
-    public interface MenuItem
+    public abstract class AMenuItem : IMenuItem
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -15,6 +15,5 @@ namespace bouffe.Interfaces
         public string ImageUrl { get; set; }
         public string ImageThumbUrl { get; set; }
         public bool InStock { get; set; }
-        
     }
 }

@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace bouffe.Models
 {
-    public class Pizza : MenuItem
+    public class Pizza : AMenuItem
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string ShortDesc { get; set; }
-        public string LongDesc { get; set; }
-        public decimal Price { get; set; }
-        public string ImageUrl { get; set; }
-        public string ImageThumbUrl { get; set; }
-        public bool IsPizzaOfTheWeek { get; set; }
-        public bool InStock { get; set; }
+        //public int Id { get; set; }
+        //public string Name { get; set; }
+        //public string ShortDesc { get; set; }
+        //public string LongDesc { get; set; }
+        //public decimal Price { get; set; }
+        //public string ImageUrl { get; set; }
+        //public string ImageThumbUrl { get; set; }
+        //public bool IsPizzaOfTheWeek { get; set; }
+        //public bool InStock { get; set; }
         public int PizzaTypeId { get; set; }
         public PizzaType PizzaType { get; set; }
     }

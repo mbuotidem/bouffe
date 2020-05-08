@@ -1,0 +1,36 @@
+﻿@model CartViewModel
+
+<h2>Your cart</h2>
+<h4>Here are the items in your cart.</h4>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Selected amount</th>
+            <th>Pie</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.OrderCart.OrderItems)
+        {
+            <tr>
+                <td class="text-center">@line.Amount</td>
+                <td class="text-left">@line.MenuItem.Name</td>
+                <td class="text-right">@line.MenuItem.Price.ToString("c")</td>
+                <td class="text-right">
+                    @((line.Amount * line.MenuItem.Price).ToString("c"))
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @Model.OrderTotal.ToString("c")
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
