@@ -36,7 +36,7 @@ Then we implement that for both ```PizzaCollection``` :
 ```
 public class PizzaCollection : IOrderItemCollection
     {
-        private List<Pizza> items = new List<Pizza>();
+        private List<Pizza> items = new List<Pizza>(); //notice that PizzaCollection stores its pizza objects in a List
 
         public IGenericIterator CreateIterator()
         {
@@ -64,7 +64,7 @@ and ```ChickenCollection```:
 ```
 public class ChickenCollection : IOrderItemCollection
     {
-        private ArrayList items = new ArrayList();
+        private ArrayList items = new ArrayList(); //On the other hand, ChickenCollection uses an ArrayList
 
         public IGenericIterator CreateIterator()
         {
@@ -193,4 +193,45 @@ public class ChickenIterator : IGenericIterator
             }
         }
     }
+```
+
+Now that all these are setup, we can use our newly granted iterating powers to display both Pizza and Chicken items on Home/Index. 
+
+First in the Home Controller :
+
+```
+IGenericIterator pizzaIterator = pizzaz.CreateIterator();
+            IGenericIterator chickenIterator = chickenz.CreateIterator();
+                        
+            List<IGenericIterator> menuItems = new List<IGenericIterator>();
+                        
+            menuItems.Add(pizzaIterator);
+            menuItems.Add(chickenIterator);
+            
+            MenuViewModel allItems = new MenuViewModel(menuItems);
+            return View(allItems);
+```
+
+And then in the Home View:
+
+```
+@foreach (var iterator in Model.menuItems)
+    {
+        for (var item = iterator.First(); !iterator.IsDone; item = iterator.Next())
+        {
+            <div class="card mt-4">
+                <img class="card-img-top" src="@(((MenuItem)item).ImageThumbUrl)" alt="Image of a pizza" />
+                <div class="card-body">
+                    <div class="card-text text-center">
+                        <h3>@(((MenuItem)item).Price.ToString("c"))</h3>
+                        <h3>
+                            <a>@(((MenuItem)item).Name)</a>
+                        </h3>
+                        <p>@(((MenuItem)item).ShortDesc)</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
 ```
