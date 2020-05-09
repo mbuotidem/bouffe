@@ -1,10 +1,15 @@
-﻿using System;
+﻿//Adapted from
+//https://www.pluralsight.com/courses/building-aspdotnet-core-mvc-web-applications
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace bouffe.Interfaces
 {
+    //This abstract class was created because Entity Framework, our ORM of choice
+    //does not support interfaces
+    //https://stackoverflow.com/questions/25385161/entity-framework-6-using-interface-as-navigation-properties-possible/25427142#25427142
     public abstract class AMenuItem : IMenuItem
     {
         public int Id { get; set; }

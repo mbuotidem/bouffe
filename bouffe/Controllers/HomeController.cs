@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using bouffe.Data;
 using bouffe.Interfaces;
 using bouffe.Models;
 using bouffe.ViewModels;
@@ -38,14 +39,21 @@ namespace bouffe.Controllers
             chickenTypes = new List<ChickenType>
             {
                 new ChickenType {ChickenTypeId = 1, ChickenTypeName = "Wings", Description = "Delicious" }
-            };    
+            };
+
+            HotWingsBuilder chick = new HotWingsBuilder();
+            chick.build();
             chickens = new List<Chicken>
             {
-                new Chicken {Id = 1, Name = "Hotwings", Price = 5.99M, ShortDesc = "They're hot!",ChickenType = chickenTypes.First(), ImageThumbUrl="/images/hotwings.jpg"},
+                //new Chicken {Id = 1, Name = "Hotwings", Price = 5.99M, ShortDesc = "They're hot!",ChickenType = chickenTypes.First(), ImageThumbUrl="/images/hotwings.jpg"},
                 new Chicken {Id = 1, Name = "BBQwings", Price = 5.99M, ShortDesc = "They're bbq!",ChickenType = chickenTypes.First(), ImageThumbUrl="/images/bbqwings.jpg"},
-                new Chicken {Id = 1, Name = "PlainWings", Price = 5.99M, ShortDesc = "They're plain!",ChickenType = chickenTypes.First(), ImageThumbUrl="/images/plainwings.jpg"}
+                new Chicken {Id = 1, Name = "PlainWings", Price = 5.99M, ShortDesc = "They're plain!",ChickenType = chickenTypes.First(), ImageThumbUrl="/images/plainwings.jpg"},
+                //(Chicken)new ChickenFactory().CreateMenuItem("Hotwings"),
+                (Chicken)chick.MenuItem
 
             };
+            
+            //chickens.Append(new ChickenFactory().CreateMenuItem("Hotwings"));
         }
         // GET: /<controller>/
         public IActionResult Index()

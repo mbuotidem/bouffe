@@ -1,4 +1,7 @@
-﻿using bouffe.Interfaces;
+﻿//Adapted from
+//https://www.pluralsight.com/courses/building-aspdotnet-core-mvc-web-applications
+
+using bouffe.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

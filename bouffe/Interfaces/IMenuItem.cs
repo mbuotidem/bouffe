@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Adapted from
+//https://www.pluralsight.com/courses/building-aspdotnet-core-mvc-web-applications
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

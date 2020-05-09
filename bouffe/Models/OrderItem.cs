@@ -1,4 +1,6 @@
-﻿using bouffe.Interfaces;
+﻿//Adapted from
+//https://www.pluralsight.com/courses/building-aspdotnet-core-mvc-web-applications
+using bouffe.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

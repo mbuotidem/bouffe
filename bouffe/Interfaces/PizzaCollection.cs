@@ -1,4 +1,5 @@
-﻿using bouffe.Models;
+﻿//Adapted from https://exceptionnotfound.net/iterator-pattern-in-csharp/
+using bouffe.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

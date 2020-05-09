@@ -18,6 +18,9 @@ namespace bouffe.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            //Got help from http://jameschambers.com/2019/06/No-Type-Was-Specified-for-the-Decimal-Column/
+            //on the 6 lines below to solve the Entity Framework "No Type Was Specified" error:
             modelBuilder.Entity<Pizza>()
                 .Property(p => p.Price)
                 .HasColumnType("decimal(18,4)");
