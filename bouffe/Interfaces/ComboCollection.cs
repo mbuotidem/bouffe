@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Adapted from https://exceptionnotfound.net/iterator-pattern-in-csharp/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

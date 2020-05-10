@@ -14,7 +14,7 @@ namespace bouffe.Models
             PizzaType = pizzaType;
         }
 
-        //This constructor is for object creation via the n'new' operator
+        //This constructor is for object creation via the 'new' operator
         public Pizza()
         {
 
@@ -31,6 +31,8 @@ namespace bouffe.Models
         //public string ImageThumbUrl { get; set; }
         //public bool IsPizzaOfTheWeek { get; set; }
         //public bool InStock { get; set; }
+
+        //EF Core Entities and navigational property
         public int PizzaTypeId { get; set; }
         public PizzaType PizzaType { get; set; }
     }

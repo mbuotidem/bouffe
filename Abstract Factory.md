@@ -1,22 +1,59 @@
-# Factory
+# Abstract Factory
 
-This design pattern provides an interface for creating objects but allows subclasses to alter the type of an object that will be created.
-
-
-As such, the creation method in the factory base class does not specify what objects the individual implementations of the interface will instantiate. Below is an implementation of this pattern. 
+This design pattern lets you create families of related objects without specifying their concrete classes. It is used when you want to make sure your clients create products that belong together.
 
 
-First we have the Creator, which returns an object of type ```AMenuItem```. 
+Due to overwhelming customer requests, Bouffe has decided to create Combos. A combo here is a pairing of a type of pizza with a type of chicken. We can consider this combo pairing as a family of related objects. As such, it is a prime candidate for creation using the Abstract Factory pattern. 
+
+
+First we have the Abstract Factory interface that declares a set of methods that return different abstract products. Pizza and wings represent a conceptual family of objects for our purposes. 
 
 ```
- public interface IMenuItemFactory
+  public interface IComboFactory
     {
-        public abstract AMenuItem CreateMenuItem(String itemName);
+        IMenuItem CreatePizza();
+
+        IMenuItem CreateWings();
     }
 ```
 
+Next are our concrete factories. For our trial run, we selected the two most popularly requested combo's, Hawaiian Pizza with Hot wings and Veggie Pizza with Plain Wings. 
 
-Then we have a Product that defines the interfaces of the objects that the factory method will create. 
+Note that we use our existing factory method to implement our concrete factories. Code re-use ftw!
+
+```
+    public class HawaiianHotFactory : IComboFactory
+    {
+        public IMenuItem CreatePizza()
+        {
+            return new PizzaFactory().CreateMenuItem("Hawaiian Delight", "Hawaiian");
+        }
+
+        public IMenuItem CreateWings()
+        {
+            return new ChickenFactory().CreateMenuItem("HotWings");
+        }
+
+
+    }
+```
+
+```
+    public class VeggiePlainFactory : IComboFactory
+    {
+        public IMenuItem CreatePizza()
+        {
+            return new PizzaFactory().CreateMenuItem("Veggie Party", "Veggie");
+        }
+
+        public IMenuItem CreateWings()
+        {
+            return new ChickenFactory().CreateMenuItem("PlainWings");
+        }
+    }
+```
+
+For the Abstract Factory pattern to work, the distinct products should have a base interface. Below is the ```AMenuItem``` abstract class from which the products inherit. Note that ```AMenuItem``` implements the ```IMenuItem``` interface. 
 
 ```
  public abstract class AMenuItem : IMenuItem
@@ -32,7 +69,28 @@ Then we have a Product that defines the interfaces of the objects that the facto
     }
 ```
 
-Next, we have a ConcreteProduct that implements our Product above. It has all the properties of ```AMenuItem``` above as well as the properties shown below. 
+And here we have the ```Pizza``` and ```Chicken``` classes which implement it. The code snippets for the ```Pizza``` and ```Chicken``` classes only show the properties specific to them since the others are inherited from the abstract class ```AMenuItem``` above.
+
+```
+    public class Pizza : AMenuItem
+    {
+        //This constructor is for the builder pattern
+        public Pizza(PizzaType pizzaType)
+        {
+            PizzaType = pizzaType;
+        }
+
+        //This constructor is for object creation via the 'new' operator
+        public Pizza()
+        {
+
+        }
+        
+        //EF Core Entities and navigational property
+        public int PizzaTypeId { get; set; }
+        public PizzaType PizzaType { get; set; }
+    }
+```
 
 ```
 public class Chicken : AMenuItem
@@ -55,45 +113,33 @@ public class Chicken : AMenuItem
     }
 ```
 
-
-Then we have a concrete Creator that implements our Creator above. Note that this implementation of a factory method is known as a parameterized factory method. It is also valid to create a factory that produces only one object, i.e a non-parameterized factory method. 
-
-```
-public class ChickenFactory : IMenuItemFactory
-    {
-        public AMenuItem CreateMenuItem(string itemName)
-        {
-            var chickenType = new ChickenType { ChickenTypeId = 1, ChickenTypeName = "Wings", Description = "Delicious" };
-
-            Chicken menuItem = null;
-
-            switch (itemName)
-            {
-                case "Hotwings":
-                    menuItem = new Chicken { Id = 1, Name = "Hotwings", Price = 5.99M, ShortDesc = "They're hot!", ChickenType = chickenType, ImageThumbUrl = "/images/hotwings.jpg" };
-                    break;
-                    
-                case "PlainWings":
-                    menuItem = new Chicken { Id = 1, Name = "PlainWings", Price = 5.99M, ShortDesc = "They're plain!", ChickenType = chickenType, ImageThumbUrl = "/images/plainwings.jpg" };
-                    break;
-
-            }
-            return menuItem;
-        }
-    }
-```
-
-The key detail here is that the item returned by the concrete creator, ```menuItem```, is an instance of a Concrete Product, in this case, a ```Chicken``` object. Therefore, we could just as well have a ```PizzaFactory``` that returns ```Pizza``` objects and in the future, add other factory types to represent other items that bouffe sells. 
+Finally, the client uses the abstract factory through the abstract types:
 
 
-Using this can be as simple as below:
 
 ```
-chickens = new List<IMenuItem>
-{
-    new ChickenFactory().CreateMenuItem("Hotwings"),
-    new ChickenFactory().CreateMenuItem("PlainWings")
+            //First we create an iterator to store the combo iterator
+            List<IGenericIterator> combos = new List<IGenericIterator>();
 
-};
+            //Then we create 2 collections where we will store the products created using the factory.
+            //HH refers to the Hawaiian with Hotwings combo and VG refers to the Veggie and Plainwings combo. 
 
+            ComboCollection HHCombo = new ComboCollection();
+            ComboCollection VPCombo = new ComboCollection();
+
+            //We create the factory for combo HawaiianHot and then ask the factory to make the required products.
+            var HHFactory = new HawaiianHotFactory();
+            HHCombo[1] = HHFactory.CreatePizza();
+            HHCombo[2] = HHFactory.CreateWings();
+
+            //We create the factory for combo VeggiePlain and then ask the factory to make the required products.
+            var VGFactory = new VeggiePlainFactory();
+            VPCombo[1] = VGFactory.CreatePizza();
+            VPCombo[2] = VGFactory.CreateWings();
+
+            //Finally, we add the iterators for these products into our 
+            combos.Add(HHCombo.CreateIterator());
+            combos.Add(VPCombo.CreateIterator());
 ```
+
+With the iterator fully hydrated, we can pass it over to the ViewModel to be displayed by the View. 

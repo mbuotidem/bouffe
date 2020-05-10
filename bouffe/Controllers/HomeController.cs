@@ -42,7 +42,7 @@ namespace bouffe.Controllers
             };
 
             ComboCollection HHCombo = new ComboCollection();
-            ComboCollection VGCombo = new ComboCollection();
+            ComboCollection VPCombo = new ComboCollection();
 
             var HHFactory = new HawaiianHotFactory();
             HHCombo[1] = HHFactory.CreatePizza();
@@ -50,11 +50,11 @@ namespace bouffe.Controllers
 
 
             var VGFactory = new VeggiePlainFactory();
-            VGCombo[1] = VGFactory.CreatePizza();
-            VGCombo[2] = VGFactory.CreateWings();
+            VPCombo[1] = VGFactory.CreatePizza();
+            VPCombo[2] = VGFactory.CreateWings();
 
             combos.Add(HHCombo.CreateIterator());
-            combos.Add(VGCombo.CreateIterator());
+            combos.Add(VPCombo.CreateIterator());
 
         }
         // GET: /<controller>/

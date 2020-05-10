@@ -30,6 +30,8 @@ namespace bouffe.Models
         //public string ImageUrl { get; set; }
         //public string ImageThumbUrl { get; set; }
         //public bool InStock { get; set; }
+        
+        //EF Core Entities and navigational property
         public int ChickenTypeId { get; set; }
         public ChickenType ChickenType { get; set; }
     }

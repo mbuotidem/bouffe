@@ -14,6 +14,6 @@ Project Live site : [bouffe.us](https://bouffe.us)
 |  [Iterator](Iterator.md)| Done  |
 |  [Builder](Builder.md)| Done  |
 |  [Factory](Factory.md) | Done  |
-|  [Abstract Factory](Abstract Factory.md)| To Do  |
+|  [Abstract Factory](Abstract\ Factory.md)| To Do  |
 |  Composite| To Do  |
 |  Singleton |To Do  |
