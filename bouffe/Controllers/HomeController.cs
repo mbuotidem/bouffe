@@ -18,7 +18,7 @@ namespace bouffe.Controllers
         IEnumerable<PizzaType> pizzaTypes = Enumerable.Empty<PizzaType>();
         IEnumerable<Pizza> pizzas = Enumerable.Empty<Pizza>();
         IEnumerable<ChickenType> chickenTypes = Enumerable.Empty<ChickenType>();
-        IEnumerable<Chicken> chickens = Enumerable.Empty<Chicken>();
+        IEnumerable<IMenuItem> chickens = Enumerable.Empty<Chicken>();
 
         public HomeController()
         {
@@ -43,13 +43,16 @@ namespace bouffe.Controllers
 
             HotWingsBuilder chick = new HotWingsBuilder();
             chick.build();
-            chickens = new List<Chicken>
+            chickens = new List<IMenuItem>
             {
                 //new Chicken {Id = 1, Name = "Hotwings", Price = 5.99M, ShortDesc = "They're hot!",ChickenType = chickenTypes.First(), ImageThumbUrl="/images/hotwings.jpg"},
                 new Chicken {Id = 1, Name = "BBQwings", Price = 5.99M, ShortDesc = "They're bbq!",ChickenType = chickenTypes.First(), ImageThumbUrl="/images/bbqwings.jpg"},
-                new Chicken {Id = 1, Name = "PlainWings", Price = 5.99M, ShortDesc = "They're plain!",ChickenType = chickenTypes.First(), ImageThumbUrl="/images/plainwings.jpg"},
+                //new Chicken {Id = 1, Name = "PlainWings", Price = 5.99M, ShortDesc = "They're plain!",ChickenType = chickenTypes.First(), ImageThumbUrl="/images/plainwings.jpg"},
                 //(Chicken)new ChickenFactory().CreateMenuItem("Hotwings"),
-                (Chicken)chick.MenuItem
+                chick.MenuItem,
+                new ChickenFactory().CreateMenuItem("Hotwings"),
+                new ChickenFactory().CreateMenuItem("PlainWings")
+
 
             };
             

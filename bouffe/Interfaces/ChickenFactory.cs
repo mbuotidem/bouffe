@@ -11,18 +11,22 @@ namespace bouffe.Interfaces
     {
         public AMenuItem CreateMenuItem(string itemName)
         {
+            var chickenType = new ChickenType { ChickenTypeId = 1, ChickenTypeName = "Wings", Description = "Delicious" };
             Chicken menuItem = null;
 
             switch (itemName)
             {
-                case "Hotwings":
-                    HotWingsBuilder builder = new HotWingsBuilder();
-                    builder.build();
-                    menuItem = (Chicken)builder.MenuItem;
-                    break;
+                //case "Hotwings":
+                //    HotWingsBuilder builder = new HotWingsBuilder();
+                //    builder.build();
+                //    menuItem = (Chicken)builder.MenuItem;
+                //    break;
 
+                case "Hotwings":
+                    menuItem = new Chicken { Id = 1, Name = "Hotwings", Price = 5.99M, ShortDesc = "They're hot!", ChickenType = chickenType, ImageThumbUrl = "/images/hotwings.jpg" };
+                    break;
                 case "PlainWings":
-                    menuItem = (Chicken)new ChickenFactory().CreateMenuItem(itemName);
+                    menuItem = new Chicken { Id = 1, Name = "PlainWings", Price = 5.99M, ShortDesc = "They're plain!", ChickenType = chickenType, ImageThumbUrl = "/images/plainwings.jpg" };
                     break;
 
             }

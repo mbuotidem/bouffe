@@ -14,7 +14,7 @@ namespace bouffe.Models
             ChickenType = chickenType;
         }
 
-        //This constructor is for object creation via the n'new' operator
+        //This constructor is for object creation via the 'new' operator
         public Chicken()
         {
 

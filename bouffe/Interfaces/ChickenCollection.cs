@@ -24,7 +24,7 @@ namespace bouffe.Interfaces
         }
 
         //Class Indexer
-        public Chicken this[int index]
+        public IMenuItem this[int index]
         {
             get => (Chicken)items[index];
             set => items.Add(value);
