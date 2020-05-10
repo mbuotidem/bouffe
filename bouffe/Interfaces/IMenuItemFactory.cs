@@ -10,6 +10,6 @@ namespace bouffe.Interfaces
 {
     public interface IMenuItemFactory
     {
-        public abstract AMenuItem CreateMenuItem(String itemName);
+        public abstract AMenuItem CreateMenuItem(String itemName, String itemType = "default");
     }
 }

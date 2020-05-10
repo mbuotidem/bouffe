@@ -1,22 +1,21 @@
-﻿//Adapted from https://exceptionnotfound.net/iterator-pattern-in-csharp/
-using bouffe.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace bouffe.Interfaces
 {
-    public class PizzaCollection : IOrderItemCollection
+    public class ComboCollection : IOrderItemCollection
     {
+       
         private List<IMenuItem> items = new List<IMenuItem>();
 
         public IGenericIterator CreateIterator()
         {
-            return new PizzaIterator(this);
+            return new MenuItemIterator(this);
         }
 
-        //Get number of pizzas in collection
+        //Get number of menuItems in collection
         public int Count
         {
             get => items.Count;

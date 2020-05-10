@@ -14,9 +14,6 @@ Project Live site : [bouffe.us](https://bouffe.us)
 |  [Iterator](Iterator.md)| Done  |
 |  [Builder](Builder.md)| Done  |
 |  [Factory](Factory.md) | Done  |
-|  Abstract Factory| To Do  |
-|  Facade |To Do  |
+|  [Abstract Factory](Abstract Factory.md)| To Do  |
 |  Composite| To Do  |
-|  State| To Do  |
-|  Observer | To Do  |
-|  Strategy| To Do  |
+|  Singleton |To Do  |

@@ -14,7 +14,9 @@ namespace bouffe.Data
     {
         public HawaiianBuilder()
         {
-            menuItem = new Pizza();
+            PizzaType pizzaType = new PizzaType { PizzaTypeId = 1, PizzaTypeName = "Hawaiian", Description = "Tropical" };
+            menuItem = new Pizza(pizzaType);
+            menuItem.Id = pizzaType.PizzaTypeId;
         }
         public override void AddImageThumbUrl()
         {
@@ -38,12 +40,25 @@ namespace bouffe.Data
 
         public override void build()
         {
-            throw new NotImplementedException();
+            this.AddImageThumbUrl();
+            this.AddName();
+            this.AddPrice();
+            this.AddShortDesc();
+        }
+        public void Reset()
+        {
+            this.menuItem = new Pizza();
         }
 
         public override AMenuItem GetMenuItem()
         {
-            throw new NotImplementedException();
+            this.build();
+
+            AMenuItem result = (AMenuItem)this.menuItem;
+
+            this.Reset();
+
+            return result;
         }
     }
 }
