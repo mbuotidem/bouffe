@@ -3,8 +3,7 @@
 This design pattern provides an interface for creating objects but allows subclasses to alter the type of an object that will be created.
 
 
-For the factory pattern, you have a creation method in a base class that does not specify what objects the individual implementations of the interface will instantiate. Below is an implementation of this pattern. 
-
+As such, the creation method in the factory base class does not specify what objects the individual implementations of the interface will instantiate. Below is an implementation of this pattern. 
 
 
 First we have the Creator, which returns an object of type ```AMenuItem```. 

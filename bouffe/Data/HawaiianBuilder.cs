@@ -1,6 +1,7 @@
 ﻿//Adapted from 
-//https://exceptionnotfound.net/builder-pattern-in-csharp/
+//https://refactoring.guru/design-patterns/builder/csharp/example
 
+using bouffe.Interfaces;
 using bouffe.Models;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,14 @@ namespace bouffe.Data
             menuItem.ShortDesc = "Ham and Pineapple";
         }
 
-        
+        public override void build()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override AMenuItem GetMenuItem()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

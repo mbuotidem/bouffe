@@ -1,5 +1,5 @@
 ﻿//Adapted from 
-//https://exceptionnotfound.net/builder-pattern-in-csharp/
+//https://refactoring.guru/design-patterns/builder/csharp/example
 
 using bouffe.Interfaces;
 using bouffe.Models;
@@ -12,6 +12,7 @@ namespace bouffe.Data
 {
     class HotWingsBuilder : MenuItemBuilder
     {
+        
         public HotWingsBuilder()
         {
             ChickenType chickenType = new ChickenType { ChickenTypeId = 1, ChickenTypeName = "Wings", Description = "Delicious" };
@@ -39,12 +40,28 @@ namespace bouffe.Data
             menuItem.ShortDesc = "They're hot!";
         }
 
-        public void build()
+        public override void build()
         {
             this.AddImageThumbUrl();
             this.AddName();
             this.AddPrice();
             this.AddShortDesc();
+        }
+        public void Reset()
+        {
+            this.menuItem = new Chicken();
+        }
+
+        public override AMenuItem GetMenuItem()
+        {
+            this.build();
+
+            AMenuItem result = (AMenuItem)this.menuItem;
+            
+            this.Reset();
+
+            return result;
+
         }
 
     }

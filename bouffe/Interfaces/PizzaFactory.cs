@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Adapted from
+//https://refactoring.guru/design-patterns/factory-method/csharp/example
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

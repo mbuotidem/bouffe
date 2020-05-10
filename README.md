@@ -12,12 +12,11 @@ Project Live site : [bouffe.us](https://bouffe.us)
 |--|--|
 |  [MVC](MVC.md) |Done  |
 |  [Iterator](Iterator.md)| Done  |
+|  [Builder](Builder.md)| Done  |
+|  [Factory](Factory.md) | Done  |
+|  Abstract Factory| To Do  |
 |  Facade |To Do  |
-|  Builder| To Do  |
 |  Composite| To Do  |
 |  State| To Do  |
-|  Abstract Factory| To Do  |
-|  [Factory](Factory.md) | Done  |
 |  Observer | To Do  |
 |  Strategy| To Do  |
-|  Memento| To Do  |

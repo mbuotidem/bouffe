@@ -1,4 +1,6 @@
-﻿using bouffe.Data;
+﻿//Adapted from
+//https://refactoring.guru/design-patterns/factory-method/csharp/example
+using bouffe.Data;
 using bouffe.Models;
 using System;
 using System.Collections.Generic;

@@ -200,7 +200,7 @@ Now that all these are setup, we can use our newly granted iterating powers to d
 First in the Home Controller :
 
 ```
-IGenericIterator pizzaIterator = pizzaz.CreateIterator();
+            IGenericIterator pizzaIterator = pizzaz.CreateIterator();
             IGenericIterator chickenIterator = chickenz.CreateIterator();
                         
             List<IGenericIterator> menuItems = new List<IGenericIterator>();
