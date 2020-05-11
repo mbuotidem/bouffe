@@ -12,7 +12,7 @@ namespace bouffe.Interfaces
     {
         public AMenuItem CreateMenuItem(string itemName, string itemType = "default")
         {
-            var pizzaType = new PizzaType();
+            PizzaType pizzaType = null;
 
             switch (itemType)
             {
@@ -29,8 +29,8 @@ namespace bouffe.Interfaces
                     break;
             }
 
-            
-            Pizza menuItem = new Pizza();
+
+            Pizza menuItem = null;
 
             switch (itemName)
             {
