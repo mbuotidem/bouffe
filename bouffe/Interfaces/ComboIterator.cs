@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace bouffe.Interfaces
 {
-    public class MenuItemIterator : IGenericIterator
+    public class ComboIterator : IGenericIterator
     {
         private ComboCollection items;
         private int current = 0;
         private int step = 1;
 
-        public MenuItemIterator(ComboCollection items)
+        public ComboIterator(ComboCollection items)
         {
             this.items = items;
         }

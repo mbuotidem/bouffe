@@ -41,20 +41,31 @@ namespace bouffe.Controllers
                 new ChickenFactory().CreateMenuItem("BBQWings")
             };
 
-            ComboCollection HHCombo = new ComboCollection();
-            ComboCollection VPCombo = new ComboCollection();
+            //ComboCollection HHCombo = new ComboCollection();
+            //ComboCollection VPCombo = new ComboCollection();
 
-            var HHFactory = new HawaiianHotFactory();
-            HHCombo[1] = HHFactory.CreatePizza();
-            HHCombo[2] = HHFactory.CreateWings();
+            //var HHFactory = new HawaiianHotFactory();
+            //HHCombo[1] = HHFactory.CreatePizza();
+            //HHCombo[2] = HHFactory.CreateWings();
 
 
-            var VGFactory = new VeggiePlainFactory();
-            VPCombo[1] = VGFactory.CreatePizza();
-            VPCombo[2] = VGFactory.CreateWings();
+            //var VGFactory = new VeggiePlainFactory();
+            //VPCombo[1] = VGFactory.CreatePizza();
+            //VPCombo[2] = VGFactory.CreateWings();
 
-            combos.Add(HHCombo.CreateIterator());
-            combos.Add(VPCombo.CreateIterator());
+            //combos.Add(HHCombo.CreateIterator());
+            //combos.Add(VPCombo.CreateIterator());
+
+
+
+            //Moved factory to within collection
+            ComboCollection HHCombo = new ComboCollection(new HawaiianHotFactory());
+            ComboCollection VPCombo = new ComboCollection(new VeggiePlainFactory());
+
+            combos.Add(HHCombo.CreateDisplayIterator());
+            combos.Add(VPCombo.CreateDisplayIterator());
+
+            
 
         }
         // GET: /<controller>/
@@ -85,6 +96,8 @@ namespace bouffe.Controllers
             
             menuItems.Add(pizzaIterator);
             menuItems.Add(chickenIterator);
+            menuItems.Add(combos[0]);
+            menuItems.Add(combos[1]);
 
             //MenuViewModel allItems = new MenuViewModel(iterator);
             MenuViewModel allItems = new MenuViewModel(menuItems);

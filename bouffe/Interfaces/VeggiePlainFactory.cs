@@ -8,6 +8,18 @@ namespace bouffe.Interfaces
 {
     public class VeggiePlainFactory : IComboFactory
     {
+        public decimal Price { get; set; }
+
+        public string Image { get; set; }
+
+        public string ImageThumbUrl { get; set; }
+
+        public VeggiePlainFactory()
+        {
+            this.Price = 7;
+            this.ImageThumbUrl = "/images/VeggiePlain.jpg";
+        }
+
         public IMenuItem CreatePizza()
         {
             return new PizzaFactory().CreateMenuItem("Veggie Party", "Veggie");

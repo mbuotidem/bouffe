@@ -340,3 +340,5 @@ ASALocalRun/
 healthchecksdb
 bouffe/.vscode
 bouffe/.vscode/
+.vscode/launch.json
+.vscode/tasks.json

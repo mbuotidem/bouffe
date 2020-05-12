@@ -8,6 +8,11 @@ namespace bouffe.Interfaces
 {
     public interface IComboFactory
     {
+        public decimal Price { get; set; }
+
+        public string Image { get; set; }
+
+        public string ImageThumbUrl { get; set; }
         IMenuItem CreatePizza();
 
         IMenuItem CreateWings();
